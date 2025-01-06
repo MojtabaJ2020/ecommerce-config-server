@@ -1,0 +1,28 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MojtabaJ2020/ecommerce-config.git
+          search-path: '/'  # The path where the configuration files are located
+          default-label: master
+encrypt:
+  keyStore:
+    location: classpath:keystore.jks
+    password: password
+    alias: spring
+    type: jks
+logging:
+  level:
+    org.springframework.cloud.config.server.encryption: DEBUG
+    org.springframework.cloud.bootstrap.encrypt: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
