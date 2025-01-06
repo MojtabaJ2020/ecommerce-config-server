@@ -4,24 +4,24 @@ FROM gradle:7.5-jdk17 AS build
 # Set the working directory for Gradle build
 WORKDIR /app
 
-# Copy the Gradle wrapper and build files
+# Copy the Gradle wrapper and build files first
 COPY gradlew .
 COPY gradle ./gradle
 COPY build.gradle settings.gradle ./
 
-# Give execute permission to gradlew
-RUN chmod +x gradlew
-
-# Download the Gradle dependencies
-RUN ./gradlew --no-daemon dependencies
-
-# Copy the rest of the project
+# Step 2: Copy the rest of the project files
 COPY . .
 
-# Build the Spring Boot jar file
+# Step 3: Give execute permission to gradlew
+RUN chmod +x gradlew
+
+# Step 4: Download the Gradle dependencies
+RUN ./gradlew --no-daemon dependencies
+
+# Step 5: Build the Spring Boot jar file
 RUN ./gradlew --no-daemon clean build -x test
 
-# Step 2: Create a smaller runtime image to run the app
+# Step 6: Create a smaller runtime image to run the app
 FROM openjdk:17-jdk-slim AS runtime
 
 # Set the working directory for the runtime
