@@ -24,8 +24,7 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
-# ecommerce-config-server
-* The original package name 'com.ecommerce.config-server' is invalid and this project uses 'com.ecommerce.config_server' instead.
+# How to generate jks file and use the config-server endpoint
 
 - keytool -genkeypair -keyalg RSA -validity 9999  -keysize 2048 -keystore keystore.jks -alias spring -storepass password -keypass password
 - http://localhost:8888/encrypt
