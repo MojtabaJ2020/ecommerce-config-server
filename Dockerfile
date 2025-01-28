@@ -30,6 +30,8 @@ WORKDIR /app
 # Copy the Spring Boot jar from the build stage
 COPY --from=build /app/build/libs/config-server-*-SNAPSHOT.jar /app/app.jar
 
+ENV EUREKA_SERVER_URL="http://localhost:9999/eureka"
+
 # Expose the port your Spring Boot application runs on
 EXPOSE 8888
 

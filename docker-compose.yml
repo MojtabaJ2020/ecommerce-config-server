@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  config-server:
+    image: mojtaba2422/ecommerce-config-server:latest
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:9999/eureka
+    networks:
+      - ecommerce
+networks:
+  ecommerce:
+    driver: bridge
