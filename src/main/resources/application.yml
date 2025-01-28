@@ -29,4 +29,4 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:9999/eureka
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:9999/eureka}
