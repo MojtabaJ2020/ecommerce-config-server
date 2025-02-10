@@ -8,7 +8,7 @@ spring:
       server:
         git:
           uri: https://github.com/MojtabaJ2020/ecommerce-config.git
-          search-path: '/',common  # The path where the configuration files are located
+          search-path: '/'  # The path where the configuration files are located
           default-label: master
 encrypt:
   keyStore:
@@ -20,6 +20,7 @@ logging:
   level:
     org.springframework.cloud.config.server.encryption: DEBUG
     org.springframework.cloud.bootstrap.encrypt: DEBUG
+    org.springframework.cloud: DEBUG
 
 management:
   endpoints:
